@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EMO VISION | Facial Expression Recognition</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            EV
+        </div>
+
+        <div class="brand-text">
+            <h2>EMO VISION</h2>
+            <span>AI EXPRESSION ANALYTICS</span>
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="#dashboard" class="nav-link active">
+            <span class="nav-icon">⌂</span>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="#analytics" class="nav-link">
+            <span class="nav-icon">◉</span>
+            <span>Analytics</span>
+        </a>
+
+        <a href="#history" class="nav-link">
+            <span class="nav-icon">◷</span>
+            <span>History</span>
+        </a>
+
+        <a href="#model" class="nav-link">
+            <span class="nav-icon">▣</span>
+            <span>Model</span>
+        </a>
+
+        <a href="#performance" class="nav-link">
+            <span class="nav-icon">⌁</span>
+            <span>Performance</span>
+        </a>
+
+        <a href="#about" class="nav-link">
+            <span class="nav-icon">ⓘ</span>
+            <span>About</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-footer">
+
+        <div class="system-status">
+            <span class="status-dot"></span>
+            <span>AI SYSTEM ONLINE</span>
+        </div>
+
+        <div class="sidebar-version">
+            EMO VISION v1.0
+        </div>
+
+    </div>
+
+</aside>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main class="main-content" id="dashboard">
+
+
+    <!-- =====================================================
+         TOP HEADER
+    ====================================================== -->
+
+    <header class="top-header">
+
+        <div>
+
+            <div class="page-label">
+                DEEP LEARNING / FACIAL EXPRESSION RECOGNITION
+            </div>
+
+            <h1>EMO VISION</h1>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <div class="live-indicator">
+                <span class="status-dot"></span>
+                SYSTEM READY
+            </div>
+
+            <div class="clock" id="clock">
+                --:--:--
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO SECTION
+    ====================================================== -->
+
+    <section class="hero-section">
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                REAL-TIME AI ANALYSIS
+            </div>
+
+            <h2>
+                See the expression.
+                <span>Understand the signal.</span>
+            </h2>
+
+            <p>
+                EMO VISION uses a convolutional neural network and
+                computer vision to recognize facial expressions
+                from webcam or image input.
+            </p>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="scan-ring"></div>
+
+            <div class="face-symbol">
+                ◉
+            </div>
+
+            <div class="scan-line"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         01. INPUT SOURCES
+    ====================================================== -->
+
+    <section class="section-block" id="input-sources">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-number">01</span>
+
+                <div>
+                    <h2>Input Sources</h2>
+
+                    <p>
+                        Select how you want to provide the facial image
+                        for expression analysis.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="section-status">
+                INPUT READY
+            </div>
+
+        </div>
+
+
+        <div class="input-source-grid">
+
+
+            <!-- WEBCAM -->
+
+            <div class="source-card webcam-source">
+
+                <div class="source-icon">
+                    ◉
+                </div>
+
+                <div class="source-content">
+
+                    <span class="source-label">
+                        LIVE INPUT
+                    </span>
+
+                    <h3>Webcam</h3>
+
+                    <p>
+                        Use your device camera for real-time
+                        facial expression recognition.
+                    </p>
+
+                    <button id="startCameraBtn"
+                            class="source-button primary-button"
+                            type="button">
+
+                        <span>◉</span>
+                        Use Webcam
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE UPLOAD -->
+
+            <div class="source-card upload-source">
+
+                <div class="source-icon">
+                    ▧
+                </div>
+
+                <div class="source-content">
+
+                    <span class="source-label">
+                        STATIC INPUT
+                    </span>
+
+                    <h3>Upload Image</h3>
+
+                    <p>
+                        Select a facial image from your computer
+                        for expression analysis.
+                    </p>
+
+                    <input type="file"
+                           id="imageInput"
+                           accept="image/*"
+                           hidden>
+
+                    <button id="uploadImageBtn"
+                            class="source-button secondary-button"
+                            type="button">
+
+                        <span>↑</span>
+                        Choose Image
+
+                    </button>
+
+                    <div class="upload-file-name"
+                         id="uploadFileName">
+                        No image selected
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         02. LIVE VIEWFINDER
+    ====================================================== -->
+
+    <section class="section-block viewfinder-section"
+             id="viewfinder">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-number">02</span>
+
+                <div>
+
+                    <h2>Live Viewfinder</h2>
+
+                    <p>
+                        View the selected input and analyze detected
+                        faces using the trained CNN model.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="face-counter" id="faceCount">
+                Faces Detected: 0
+            </div>
+
+        </div>
+
+
+        <!-- VIEWFINDER -->
+
+        <div class="viewfinder-card">
+
+            <div class="viewfinder-header">
+
+                <div class="viewfinder-title">
+
+                    <span class="camera-status-dot"></span>
+
+                    <span>ANALYSIS VIEW</span>
+
+                </div>
+
+                <div class="viewfinder-resolution">
+                    48 × 48 MODEL INPUT
+                </div>
+
+            </div>
+
+
+            <div class="camera-container">
+
+                <!-- Webcam -->
+
+                <video id="video"
+                       autoplay
+                       playsinline
+                       muted>
+                </video>
+
+
+                <!-- Canvas -->
+
+                <canvas id="canvas"></canvas>
+
+
+                <!-- Placeholder -->
+
+                <div class="camera-placeholder"
+                     id="cameraPlaceholder">
+
+                    <div class="placeholder-icon">
+                        ◉
+                    </div>
+
+                    <h3>Camera Standby</h3>
+
+                    <p>
+                        Select Webcam above to start the live viewfinder
+                    </p>
+
+                </div>
+
+
+                <!-- Corner Decorations -->
+
+                <div class="corner corner-tl"></div>
+                <div class="corner corner-tr"></div>
+                <div class="corner corner-bl"></div>
+                <div class="corner corner-br"></div>
+
+
+                <!-- Scan Grid -->
+
+                <div class="scan-grid"></div>
+
+            </div>
+
+
+            <!-- VIEWFINDER CONTROLS -->
+
+            <div class="viewfinder-controls">
+
+                <button id="startBtn"
+                        class="control-button analyze-button"
+                        type="button">
+
+                    <span>▶</span>
+                    Analyze
+
+                </button>
+
+
+                <button id="stopBtn"
+                        class="control-button stop-button"
+                        type="button">
+
+                    <span>■</span>
+                    Stop
+
+                </button>
+
+            </div>
+
+
+            <div class="viewfinder-info">
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        INPUT
+                    </span>
+
+                    <span class="info-value">
+                        Webcam / Image
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        FACE DETECTION
+                    </span>
+
+                    <span class="info-value">
+                        OpenCV
+                    </span>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        CLASSIFIER
+                    </span>
+
+                    <span class="info-value">
+                        CNN
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         03. EXPRESSION ANALYTICS
+    ====================================================== -->
+
+    <section class="section-block"
+             id="analytics">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-number">03</span>
+
+                <div>
+
+                    <h2>Expression Analytics</h2>
+
+                    <p>
+                        Real-time facial expression prediction
+                        and confidence analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="section-status">
+                CNN OUTPUT
+            </div>
+
+        </div>
+
+
+        <div class="analytics-grid">
+
+
+            <!-- DOMINANT EXPRESSION -->
+
+            <div class="analytics-main-card">
+
+                <span class="analytics-label">
+                    DOMINANT EXPRESSION
+                </span>
+
+                <div class="dominant-expression"
+                     id="dominantExpression">
+
+                    --
+
+                </div>
+
+                <div class="confidence-wrapper">
+
+                    <div class="confidence-header">
+
+                        <span>CONFIDENCE</span>
+
+                        <strong id="confidenceValue">
+                            0%
+                        </strong>
+
+                    </div>
+
+                    <div class="confidence-track">
+
+                        <div class="confidence-bar"
+                             id="confidenceBar">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPRESSION PROBABILITIES -->
+
+            <div class="probability-card">
+
+                <div class="probability-header">
+
+                    <span>EXPRESSION PROBABILITIES</span>
+
+                    <span>SOFTMAX</span>
+
+                </div>
+
+
+                <!-- ANGRY -->
+
+                <div class="probability-row">
+
+                    <div class="probability-name">
+                        <span class="expression-dot angry-dot"></span>
+                        Angry
+                    </div>
+
+                    <div class="probability-track">
+
+                        <div class="probability-bar"
+                             id="bar-angry">
+                        </div>
+
+                    </div>
+
+                    <div class="probability-value"
+                         id="value-angry">
+                        0%
+                    </div>
+
+                </div>
+
+
+                <!-- DISGUST -->
+
+                <div class="probability-row">
+
+                    <div class="probability-name">
+                        <span class="expression-dot disgust-dot"></span>
+                        Disgust
+                    </div>
+
+                    <div class="probability-track">
+
+                        <div class="probability-bar"
+                             id="bar-disgust">
+                        </div>
+
+                    </div>
+
+                    <div class="probability-value"
+                         id="value-disgust">
+                        0%
+                    </div>
+
+                </div>
+
+
+                <!-- FEAR -->
+
+                <div class="probability-row">
+
+                    <div class="probability-name">
+                        <span class="expression-dot fear-dot"></span>
+                        Fear
+                    </div>
+
+                    <div class="probability-track">
+
+                        <div class="probability-bar"
+                             id="bar-fear">
+                        </div>
+
+                    </div>
+
+                    <div class="probability-value"
+                         id="value-fear">
+                        0%
+                    </div>
+
+                </div>
+
+
+                <!-- HAPPY -->
+
+                <div class="probability-row">
+
+                    <div class="probability-name">
+                        <span class="expression-dot happy-dot"></span>
+                        Happy
+                    </div>
+
+                    <div class="probability-track">
+
+                        <div class="probability-bar"
+                             id="bar-happy">
+                        </div>
+
+                    </div>
+
+                    <div class="probability-value"
+                         id="value-happy">
+                        0%
+                    </div>
+
+                </div>
+
+
+                <!-- NEUTRAL -->
+
+                <div class="probability-row">
+
+                    <div class="probability-name">
+                        <span class="expression-dot neutral-dot"></span>
+                        Neutral
+                    </div>
+
+                    <div class="probability-track">
+
+                        <div class="probability-bar"
+                             id="bar-neutral">
+                        </div>
+
+                    </div>
+
+                    <div class="probability-value"
+                         id="value-neutral">
+                        0%
+                    </div>
+
+                </div>
+
+
+                <!-- SAD -->
+
+                <div class="probability-row">
+
+                    <div class="probability-name">
+                        <span class="expression-dot sad-dot"></span>
+                        Sad
+                    </div>
+
+                    <div class="probability-track">
+
+                        <div class="probability-bar"
+                             id="bar-sad">
+                        </div>
+
+                    </div>
+
+                    <div class="probability-value"
+                         id="value-sad">
+                        0%
+                    </div>
+
+                </div>
+
+
+                <!-- SURPRISE -->
+
+                <div class="probability-row">
+
+                    <div class="probability-name">
+                        <span class="expression-dot surprise-dot"></span>
+                        Surprise
+                    </div>
+
+                    <div class="probability-track">
+
+                        <div class="probability-bar"
+                             id="bar-surprise">
+                        </div>
+
+                    </div>
+
+                    <div class="probability-value"
+                         id="value-surprise">
+                        0%
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         04. ANALYSIS HISTORY
+    ====================================================== -->
+
+    <section class="section-block"
+             id="history">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-number">04</span>
+
+                <div>
+
+                    <h2>Analysis History</h2>
+
+                    <p>
+                        Recent facial expression predictions
+                        from this session.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button id="clearHistoryBtn"
+                    class="clear-history-button"
+                    type="button">
+
+                Clear History
+
+            </button>
+
+        </div>
+
+
+        <div class="history-card">
+
+            <div class="history-header">
+
+                <span>EXPRESSION</span>
+                <span>CONFIDENCE</span>
+                <span>SOURCE</span>
+                <span>TIME</span>
+
+            </div>
+
+
+            <div id="historyList"
+                 class="history-list">
+
+                <div class="history-empty">
+
+                    <div class="empty-icon">
+                        ◷
+                    </div>
+
+                    <h3>No analysis yet</h3>
+
+                    <p>
+                        Start the camera or upload an image
+                        to begin analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         05. MODEL INFORMATION
+    ====================================================== -->
+
+    <section class="section-block"
+             id="model">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-number">05</span>
+
+                <div>
+
+                    <h2>Model Information</h2>
+
+                    <p>
+                        Technical configuration of the EMO VISION
+                        facial expression recognition system.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="section-status">
+                TRAINED MODEL
+            </div>
+
+        </div>
+
+
+        <div class="model-grid">
+
+
+            <div class="model-card">
+
+                <span class="model-card-label">
+                    ARCHITECTURE
+                </span>
+
+                <h3>CNN</h3>
+
+                <p>
+                    Convolutional Neural Network
+                </p>
+
+            </div>
+
+
+            <div class="model-card">
+
+                <span class="model-card-label">
+                    INPUT SIZE
+                </span>
+
+                <h3>48 × 48</h3>
+
+                <p>
+                    Grayscale facial image
+                </p>
+
+            </div>
+
+
+            <div class="model-card">
+
+                <span class="model-card-label">
+                    OUTPUT CLASSES
+                </span>
+
+                <h3>07</h3>
+
+                <p>
+                    Facial expression categories
+                </p>
+
+            </div>
+
+
+            <div class="model-card">
+
+                <span class="model-card-label">
+                    FRAMEWORK
+                </span>
+
+                <h3>TensorFlow</h3>
+
+                <p>
+                    Keras deep learning framework
+                </p>
+
+            </div>
+
+
+            <div class="model-card">
+
+                <span class="model-card-label">
+                    COMPUTER VISION
+                </span>
+
+                <h3>OpenCV</h3>
+
+                <p>
+                    Face detection and image processing
+                </p>
+
+            </div>
+
+
+            <div class="model-card">
+
+                <span class="model-card-label">
+                    DATASET
+                </span>
+
+                <h3>FER-2013</h3>
+
+                <p>
+                    Facial expression image dataset
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="class-list-card">
+
+            <div class="class-list-title">
+                SUPPORTED EXPRESSIONS
+            </div>
+
+            <div class="class-tags">
+
+                <span>Angry</span>
+                <span>Disgust</span>
+                <span>Fear</span>
+                <span>Happy</span>
+                <span>Neutral</span>
+                <span>Sad</span>
+                <span>Surprise</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         06. MODEL PERFORMANCE
+    ====================================================== -->
+
+    <section class="section-block"
+             id="performance">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-number">06</span>
+
+                <div>
+
+                    <h2>Model Performance</h2>
+
+                    <p>
+                        Evaluation results obtained from the trained
+                        facial expression recognition model.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="section-status">
+                EVALUATION
+            </div>
+
+        </div>
+
+
+        <div class="performance-grid">
+
+
+            <div class="performance-card highlight-performance">
+
+                <span class="performance-label">
+                    TEST ACCURACY
+                </span>
+
+                <div class="performance-value">
+                    48.40%
+                </div>
+
+                <p>
+                    Evaluation accuracy on the test dataset
+                </p>
+
+            </div>
+
+
+            <div class="performance-card">
+
+                <span class="performance-label">
+                    VALIDATION ACCURACY
+                </span>
+
+                <div class="performance-value">
+                    46.91%
+                </div>
+
+                <p>
+                    Best validation accuracy during training
+                </p>
+
+            </div>
+
+
+            <div class="performance-card">
+
+                <span class="performance-label">
+                    INPUT DIMENSION
+                </span>
+
+                <div class="performance-value">
+                    48×48
+                </div>
+
+                <p>
+                    Grayscale image input
+                </p>
+
+            </div>
+
+
+            <div class="performance-card">
+
+                <span class="performance-label">
+                    OUTPUT CLASSES
+                </span>
+
+                <div class="performance-value">
+                    07
+                </div>
+
+                <p>
+                    Supported facial expressions
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="performance-visuals">
+
+            <div class="graph-card confusion-card">
+
+                <div class="graph-header">
+
+                    <div>
+
+                        <span>
+                            CONFUSION MATRIX
+                        </span>
+
+                        <p>
+                            Class-wise prediction performance
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <img src="{{ url_for('model_graph', filename='confusion_matrix.png') }}"
+                     alt="Confusion Matrix">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         07. ABOUT
+    ====================================================== -->
+
+    <section class="section-block"
+             id="about">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-number">07</span>
+
+                <div>
+
+                    <h2>About EMO VISION</h2>
+
+                    <p>
+                        Understanding the project behind the dashboard.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <div class="about-main">
+
+                <div class="about-logo">
+                    EV
+                </div>
+
+                <div>
+
+                    <h3>
+                        EMO VISION
+                    </h3>
+
+                    <p>
+                        EMO VISION is a deep learning based facial
+                        expression recognition system that combines
+                        Convolutional Neural Networks with OpenCV
+                        to analyze facial images in real time.
+                    </p>
+
+                    <p>
+                        The system detects a face, preprocesses the
+                        facial region into a 48 × 48 grayscale image,
+                        and classifies it into one of seven supported
+                        facial expression categories.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-pipeline">
+
+                <div class="pipeline-step">
+
+                    <span>01</span>
+                    <strong>INPUT</strong>
+                    <small>Webcam / Image</small>
+
+                </div>
+
+
+                <div class="pipeline-arrow">
+                    →
+                </div>
+
+
+                <div class="pipeline-step">
+
+                    <span>02</span>
+                    <strong>DETECT</strong>
+                    <small>OpenCV Face Detection</small>
+
+                </div>
+
+
+                <div class="pipeline-arrow">
+                    →
+                </div>
+
+
+                <div class="pipeline-step">
+
+                    <span>03</span>
+                    <strong>PROCESS</strong>
+                    <small>48×48 Grayscale</small>
+
+                </div>
+
+
+                <div class="pipeline-arrow">
+                    →
+                </div>
+
+
+                <div class="pipeline-step">
+
+                    <span>04</span>
+                    <strong>PREDICT</strong>
+                    <small>CNN Classification</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div>
+            EMO VISION
+        </div>
+
+        <div>
+            DEEP LEARNING • COMPUTER VISION • CNN
+        </div>
+
+        <div>
+            © 2026 EMO VISION
+        </div>
+
+    </footer>
+
+
+</main>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
